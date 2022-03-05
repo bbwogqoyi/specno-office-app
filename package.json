@@ -12,7 +12,7 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "dev": "lerna run dev",
+    "dev": "lerna run dev --stream",
     "diff": "lerna diff"
   }
 }
