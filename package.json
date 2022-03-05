@@ -1,0 +1,18 @@
+{
+  "name": "specno",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Bonani Brian Wogqoyi <bonani.wogqoyi@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "lerna run dev",
+    "diff": "lerna diff"
+  }
+}
