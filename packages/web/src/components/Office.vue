@@ -29,7 +29,6 @@ let members = ref([
     image: "/src/assets/05.png",
     name: "Bafana Ngubulana"
   },
-
 ])
 </script>
 

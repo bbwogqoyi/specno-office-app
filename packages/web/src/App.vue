@@ -3,6 +3,7 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
 import Office from './components/Office.vue'
+import LandingPage from './components/LandingPage.vue';
 </script>
 
 <template>
@@ -13,7 +14,8 @@ import Office from './components/Office.vue'
 
   <div class="h-screen flex items-center bg-[#F8FAFC] ">
     <div class="w-1/2 mx-auto ">
-      <Office />
+      <Office class="hidden" />
+      <LandingPage />
     </div>
   </div>
 
