@@ -46,9 +46,9 @@ const showMoreInfo = ref(false);
 
       <div class="flex flex-row items-center justify-center mt-2 mb-6 space-x-4 cursor-pointer group" @click="showMoreInfo = !showMoreInfo">
         <p>More Info</p>
-        <svg :class="[ showMoreInfo ? 'block' : 'hidden' ]" class="group-hover:animate-bounce" width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m19.92 9.46-6.52 6.672c-.77.788-2.03.788-2.8 0L4.08 9.46" stroke="#0D4477" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg :class="[ showMoreInfo ? 'block' : 'hidden' ]" class="group-hover:animate-bounce delay-500" width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m19.92 9.46-6.52 6.672c-.77.788-2.03.788-2.8 0L4.08 9.46" stroke="#0D4477" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
 
-        <svg :class="[ showMoreInfo ? 'hidden' : 'block' ]" class="group-hover:animate-bounce" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.9201 15.7023L13.4001 9.0307C12.6301 8.2428 11.3701 8.2428 10.6001 9.0307L4.08008 15.7023" stroke="#0D4477" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg :class="[ showMoreInfo ? 'hidden' : 'block' ]" class="group-hover:animate-bounce delay-500" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.9201 15.7023L13.4001 9.0307C12.6301 8.2428 11.3701 8.2428 10.6001 9.0307L4.08008 15.7023" stroke="#0D4477" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
 
       <!-- More Info Section -->
