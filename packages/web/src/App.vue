@@ -6,6 +6,7 @@ import OfficeOverview from './components/OfficeOverview.vue'
 import OfficeOccupants from './components/OfficeOccupants.vue';
 
 import { ref } from 'vue'
+import Office from './components/Office.vue'
 let members = ref([
   { 
     id: 1,
@@ -44,21 +45,10 @@ let members = ref([
 
   <div class="h-screen flex items-center bg-[#F8FAFC] ">
     <div class="w-1/2 mx-auto ">
-      <!-- <OfficeOverview 
-        name="Specno"
-        capacity=25
-        noOfOccupants=5
-        mobile="082&nbsp;364&nbsp;9864" 
-        email="info@specno.com" 
-        location="10 Willie Van Schoor Dr, Bo Oakdale, Cape Town, 7530"
-        ribbonColour="#97512C"
-      /> -->
-
-      <OfficeOccupants
-        :occupants=members
-      />
+      <Office />
     </div>
   </div>
+
 </template>
 
 <style>

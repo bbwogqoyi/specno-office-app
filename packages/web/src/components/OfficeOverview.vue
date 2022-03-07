@@ -11,7 +11,7 @@ defineProps({
   ribbonColour: String
 })
 
-const showMoreInfo = ref(false);
+const showMoreInfo = ref(true);
 </script>
 
 <template>

@@ -11,8 +11,8 @@
   <template>
     <div class="flex flex-col">
       <!-- Searchbar -->
-      <div class="pt-2 mb-8 relative text-gray-700">
-        <input class="border-2 border-gray-100 bg-white w-full h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+      <div class="pt-2 mt-4 mb-8 relative text-gray-700">
+        <input v-model="searchText" class="border-2 border-gray-100 bg-white w-full h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none"
           type="search" name="search" placeholder="Search">
         <button type="button" class="absolute right-0 top-0 mt-5 mr-4">
           <svg class="text-gray-400 h-6 w-6 fill-current" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 11a7.25 7.25 0 1 1 14.5 0 7.25 7.25 0 0 1-14.5 0ZM11 2.25a8.75 8.75 0 1 0 5.634 15.445l2.836 2.835a.75.75 0 1 0 1.06-1.06l-2.835-2.836A8.75 8.75 0 0 0 11 2.25Z"/>
