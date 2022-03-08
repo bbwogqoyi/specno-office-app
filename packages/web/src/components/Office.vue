@@ -43,9 +43,9 @@ let members = ref([
     </div>
 
     <OfficeOverview 
+      :capacity='25'
+      :noOfOccupants='5'
       name="Specno"
-      capacity=25
-      noOfOccupants=5
       mobile="082&nbsp;364&nbsp;9864" 
       email="info@specno.com" 
       location="10 Willie Van Schoor Dr, Bo Oakdale, Cape Town, 7530"

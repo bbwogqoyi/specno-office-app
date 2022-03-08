@@ -4,6 +4,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Office from './components/Office.vue'
 import LandingPage from './components/LandingPage.vue';
+import NewOrEditOffice from './components/NewOrEditOffice.vue';
 </script>
 
 <template>
@@ -14,8 +15,19 @@ import LandingPage from './components/LandingPage.vue';
 
   <div class="h-screen flex items-center bg-[#F8FAFC] ">
     <div class="w-1/2 mx-auto ">
-      <Office class="hidden" />
-      <LandingPage />
+      <!-- <Office class="hidden" />
+      <LandingPage class="hidden"/> -->
+      <NewOrEditOffice 
+        :isNew='true' 
+        :currentInfo='{
+          name:"Specno",
+          capacity:25,
+          mobile:"082&nbsp;364&nbsp;9864",
+          email:"info@specno.com",
+          location:"10 Willie Van Schoor Dr, Bo Oakdale, Cape Town, 7530",
+          colour:"#FFBE0B"
+        }'
+      />
     </div>
   </div>
 
