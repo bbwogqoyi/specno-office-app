@@ -1,5 +1,5 @@
 <script setup> 
-import { defineProps, ref, toRefs } from "vue";
+import { ref, toRefs } from "vue";
 import OfficeColourButton from "./OfficeColourButton.vue";
 
 const props = defineProps({
