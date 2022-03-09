@@ -46,7 +46,7 @@ officeRouter.put("/offices/:id", async (req, res) => {
  */
 officeRouter.delete("/offices/:id", async (req, res) => {
   const { id } = req.params;
-  const result = await Dog.findByIdAndDelete(id);
+  const result = await officeModel.findByIdAndDelete(id);
   return res.status(StatusCodes.OK).json(result);
 });
 
