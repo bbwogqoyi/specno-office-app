@@ -2,6 +2,7 @@ import express from 'express';
 import yenv from 'yenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import officeRouter from './routes/office.js'
 
 const app = express()
 const env = yenv('env.yaml', { env: 'development' })
@@ -11,6 +12,8 @@ app.options('*', cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(officeRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
