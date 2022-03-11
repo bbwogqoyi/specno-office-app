@@ -14,3 +14,9 @@
 - cd specno-office-app
 - yarn install
 - yarn dev
+
+
+## Endpoints
+
+- Frontend - https://specno.grahslagg.com/
+- API - https://api.specno.grahslagg.com/
