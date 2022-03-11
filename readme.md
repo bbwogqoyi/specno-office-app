@@ -6,3 +6,11 @@
 ## Recommended IDE Setup
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+
+
+## Running the project in local machine
+
+- git clone https://github.com/bbwogqoyi/specno-office-app.git
+- cd specno-office-app
+- yarn install
+- yarn dev
