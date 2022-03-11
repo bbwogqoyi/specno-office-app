@@ -1,23 +1,38 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, toRefs } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
-defineProps({
+const router = useRouter()
+const route = useRoute()
+
+const props = defineProps({
+  id: String,
   name: String,
   noOfOccupants: Number,
-  mobile: String,
+  phone: String,
   email: String,
   capacity: Number,
   location: String,
-  ribbonColour: String
+  colour: String,
+  isOffice: Boolean
 })
-
 const showMoreInfo = ref(true);
+const { id } = toRefs(props);
+
+const routeToOfficePage = () => {
+  router.push({ name: 'Office', params: { id: id.value } })
+}
+
+const routeToOfficeEditPage = () => {
+  router.push({ name: 'EditOffice', params: { id: id.value, isNew: false }})
+}
+
 </script>
 
 <template>
   <div class="flex bg-white rounded-r-lg border border-solid border-[#E8F3FC]">
     <!-- Side Ribbon -->
-    <div class="w-3 flex flex-col rounded-l-lg" :style="{ 'background-color': ribbonColour }">
+    <div class="w-3 flex flex-col rounded-l-lg" :style="{ 'background-color': colour }">
       <div class="h-3/5">
         <div class="h-1/2">&nbsp;</div>
         <div class="h-1/2 bg-white opacity-20">&nbsp;</div>
@@ -28,8 +43,14 @@ const showMoreInfo = ref(true);
     <!-- Main Content -->
     <div class="w-full py-2 px-4 tracking-tight text-[#484954]">
       <div class="flex flex-row items-center justify-between my-2">
-        <p class="font-extrabold text-2xl tracking-tight">{{name}}</p>
-        <svg class="mx-4 right-0" width="18" height="19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button type="button" @click="routeToOfficePage()" :class="[isOffice ? 'hidden': 'block']">
+          <p :title="id" class="font-extrabold text-2xl tracking-tight cursor-pointer">{{name}}</p>
+        </button>
+        <p :title="id" class="font-extrabold text-2xl tracking-tight" :class="[isOffice ? 'block': 'hidden']">
+          {{name}}
+        </p>
+        
+        <svg @click="routeToOfficeEditPage()" class="mx-4 right-0 cursor-pointer" width="18" height="19" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M14.158 2.333a1.25 1.25 0 0 1 1.684 0c.023.02.052.05.156.157.1.102.128.13.147.153a1.25 1.25 0 0 1 0 1.644c-.02.023-.047.051-.147.153l-.84.861a1.904 1.904 0 0 1-1.942-2.007l.786-.804a4.63 4.63 0 0 1 .156-.157Zm-2.204.107-8.96 9.168-.072.073c-.692.708-1.139 1.165-1.45 1.724-.31.56-.461 1.18-.696 2.142l-.024.1-.48 1.966a.75.75 0 0 0 .914.904l1.828-.467.102-.027c.981-.25 1.615-.412 2.182-.74.567-.327 1.024-.795 1.732-1.52l.073-.075 9.968-10.2.014-.014a2.75 2.75 0 0 0 .19-3.817c-.05-.059-.111-.12-.19-.2l-.014-.016-.015-.015c-.082-.084-.144-.148-.204-.202a2.75 2.75 0 0 0-3.704 0c-.06.054-.122.118-.204.202l-.015.015-.956.979a.816.816 0 0 0-.02.02Zm-.021 2.167a3.429 3.429 0 0 0 1.973 1.974L6.031 14.64c-.807.825-1.117 1.133-1.483 1.345-.367.211-.788.325-1.906.611l-.617.158.184-.751c.268-1.096.375-1.508.575-1.87.201-.362.495-.67 1.283-1.477l7.866-8.05Z" fill="#0D4477"/>
         </svg>
       </div>
@@ -57,7 +78,7 @@ const showMoreInfo = ref(true);
           <svg class="w-6" width="20" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.462.964h.125c.332 0 .59 0 .83.042A2.75 2.75 0 0 1 6.45 2.594c.099.221.161.472.241.794l.015.058.414 1.655.009.036c.14.56.259 1.036.316 1.439.06.429.063.838-.074 1.259-.137.42-.38.75-.682 1.062-.283.291-.66.606-1.102.976l-.029.024-1.612 1.348a13.897 13.897 0 0 0 5.523 5.523l1.348-1.612.024-.029c.37-.443.685-.819.977-1.102.31-.302.64-.545 1.061-.681.42-.137.83-.136 1.26-.075.402.057.878.176 1.438.316l.036.01 1.655.413.058.015c.322.08.573.143.794.241a2.75 2.75 0 0 1 1.588 2.034c.042.239.042.497.042.83v.125c0 .383 0 .685-.066.983-.242 1.084-1.246 1.994-2.348 2.13-.302.037-.562.011-.885-.02l-.047-.005c-2.64-.257-5.016-.917-7.085-1.957-3.074-1.544-5.445-3.915-6.99-6.989C1.29 9.325.632 6.95.374 4.311a88.75 88.75 0 0 0-.005-.047C.337 3.94.311 3.68.348 3.378c.136-1.102 1.046-2.105 2.13-2.348.298-.066.6-.066.984-.066Zm7.396 16.482c1.68.72 3.582 1.196 5.691 1.402.387.038.483.044.604.029.472-.058.963-.503 1.067-.968.026-.116.03-.243.03-.722 0-.42-.003-.536-.02-.628a1.25 1.25 0 0 0-.72-.925c-.086-.038-.198-.069-.606-.17l-1.655-.414c-.606-.152-1.005-.25-1.321-.296-.3-.042-.458-.025-.584.016-.127.04-.265.121-.482.331-.229.223-.493.538-.894 1.017l-1.11 1.328Zm-7.59-7.59 1.328-1.11c.48-.4.795-.665 1.017-.894.21-.217.29-.355.331-.481.041-.126.058-.286.016-.584-.045-.317-.144-.716-.296-1.322L5.251 3.81c-.102-.408-.133-.52-.171-.605a1.25 1.25 0 0 0-.924-.722c-.092-.016-.208-.019-.63-.019-.478 0-.604.004-.72.03-.465.104-.91.595-.969 1.068-.015.12-.009.216.029.603.206 2.11.682 4.011 1.402 5.692Z" fill="#0D4477"/>
           </svg>
-          <p>{{mobile}}</p>
+          <p>{{phone}}</p>
         </div>
 
         <div class="flex flex-row items-center my-2 pb-3 space-x-4">
