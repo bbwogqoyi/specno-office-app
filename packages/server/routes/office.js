@@ -4,6 +4,12 @@ import officeModel from '../models/office.js'
 
 const officeRouter = express.Router()
 
+// API request logger middleware
+officeRouter.use((req, res, next) => {
+  console.log('Requested URI Path : ', req.method,': ', req.url)
+  next()
+})
+
 /**
  * Get all the saved offices
  * e.g. http://localhost:5001/offices
@@ -36,7 +42,7 @@ officeRouter.post("/offices", async (req, res) => {
  */
 officeRouter.put("/offices/:id", async (req, res) => {
   const { id } = req.params;
-  await officeModel.updateOne({ id }, req.body);
+  await officeModel.findByIdAndUpdate(id, req.body);
   const result = await officeModel.findById(id);
   return res.status(StatusCodes.OK).json(result);
 });

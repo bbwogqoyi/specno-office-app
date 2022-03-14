@@ -71,7 +71,7 @@ const updateOfficeRecord = () => {
     members: office.value.members,
   }
 
-  axios.put(`http://localhost:5001/offices/${office.value._id}`, updatedoffice)
+  axios.put(`http://localhost:5001/offices/${route.params.id}`, updatedoffice)
   .then(function (response) {
     if(response.status === StatusCodes.OK) {
       office.value = {}
